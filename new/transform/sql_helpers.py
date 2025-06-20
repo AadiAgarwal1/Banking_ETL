@@ -2,7 +2,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 # Update these credentials as per your setup
-DB_URI = "mysql+pymysql://root:passworrd-SQLpassword@localhost:3306/playbox"
+DB_URI = "mysql+pymysql://root:SQLpassword@127.0.0.1:3306/banking_system"
 engine = create_engine(DB_URI)
 
 def load_table_as_df(table_name):
