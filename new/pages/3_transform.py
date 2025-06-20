@@ -14,6 +14,9 @@ from transform.branches import customers_per_branch, employees_per_branch
 from transform.risky import risky_customers
 from transform.profitability import branch_profitability
 from transform.cross_sell import customers_without_cards_loans
+from transform.employees_scd import transform_employees
+from transform.sql_helpers import load_table_as_df, write_to_sql
+
 st.set_page_config(page_title="Transform", layout="wide")
 st.title("🧠 Transformation & Insights Dashboard")
 
@@ -56,15 +59,15 @@ def show_button(label, state_key, fn, *args, chart=False, metric=False, index=No
             if index in result.columns:
                 st.bar_chart(result.set_index(index))
             else:
-                st.warning(f"📛 Index '{index}' not found in: {result.columns.tolist()}")
+                st.warning(f"\U0001f4db Index '{index}' not found in: {result.columns.tolist()}")
                 st.dataframe(result)
         else:
             st.dataframe(result)
 
 # -----------------------------------------
 st.subheader("🧍 Customer Insights")
-show_button("📅 New Customer Growth", "transformed_customer_growth", new_customer_growth,customers, customers_excel, chart=True, index="created_at")
-show_button("📦 Multi-Product Customers", "transformed_multi_product", multi_product_customers,accounts, loans, cards, customerservices,accounts_excel, loans_excel, cards_excel, customerservices_excel)
+show_button("\U0001f4c5 New Customer Growth", "transformed_customer_growth", new_customer_growth,customers, customers_excel, chart=True, index="created_at")
+show_button("\U0001f4e6 Multi-Product Customers", "transformed_multi_product", multi_product_customers,accounts, loans, cards, customerservices,accounts_excel, loans_excel, cards_excel, customerservices_excel)
 
 # -----------------------------------------
 st.subheader("💰 Account Insights")
@@ -81,8 +84,8 @@ show_button("💰 High Value Transactions", "transformed_high_value_txn", high_v
 # -----------------------------------------
 st.subheader("💳 Loans & Cards")
 show_button("✅ Loan Approval Rate", "transformed_loan_approval", loan_approval_rate,loans, loans_excel, chart=True, index="Status")
-show_button("📆 Avg Loan Duration", "transformed_loan_duration", average_loan_duration, loans, loans_excel, metric=True)
-show_button("🧾 Loan Amount by Type", "transformed_loan_type_sum", loans_by_type, loans, loans_excel, chart=True, index="loan_type")
+show_button("🗖 Avg Loan Duration", "transformed_loan_duration", average_loan_duration, loans, loans_excel, metric=True)
+show_button("📾 Loan Amount by Type", "transformed_loan_type_sum", loans_by_type, loans, loans_excel, chart=True, index="loan_type")
 show_button("📊 Card Preference", "transformed_card_preference", card_preference, cards, cards_excel, chart=True, index="Card Type")
 show_button("💳 Card Issuance Rate (%)", "transformed_card_rate", card_issuance_rate,cards, customers, cards_excel, customers_excel, metric=True)
 
@@ -102,12 +105,32 @@ st.subheader("🏢 Branch & Employee Insights")
 show_button("🏦 Customers Per Branch", "transformed_customers_per_branch", customers_per_branch,accounts, branches, accounts_excel, branches_excel)
 show_button("👨‍💼 Employees Per Branch", "transformed_employees_per_branch", employees_per_branch,employees, branches, employees_excel, branches_excel)
 
-# -----------------------------------------
-st.subheader("🧠 Strategic & Cross-Sell")
-show_button("💎 High Value Customers", "transformed_high_value_customers", high_value_customers,accounts, logins, customerservices, accounts_excel, logins_excel, customerservices_excel)
-show_button("📭 Cross-Sell: Customers Without Cards/Loans", "transformed_cross_sell", customers_without_cards_loans,customers, cards, loans, customers_excel, cards_excel, loans_excel)
+# SCD Integration Section
+with st.expander("🔁 Apply SCD to Employees Table"):
+    if st.button("Run Employee SCD Transformation"):
+        try:
+            current_df = employees
+            incoming_df = employees_excel  # From Excel
+            history_df = load_table_as_df('employees_history')
+
+            current_df_updated, history_df_updated = transform_employees(current_df, incoming_df, history_df)
+
+            st.success("SCD Applied Successfully!")
+            st.subheader("✅ Updated Current Employees")
+            st.dataframe(current_df_updated)
+
+            st.subheader("📜 Employees History Table (SCD Type 2)")
+            st.dataframe(history_df_updated)
+
+            if st.button("💾 Save SCD Output to Database"):
+                write_to_sql(current_df_updated, 'Employees', mode='replace')
+                write_to_sql(history_df_updated, 'employees_history', mode='replace')
+                st.success("SCD changes saved to database.")
+
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
 
 # -----------------------------------------
 st.subheader("⚠️ Risk & Profitability")
-show_button("🧯 Risky Customers (High Loan + Inactive)", "transformed_risky_customers", risky_customers,loans, logins, accounts, loans_excel, logins_excel, accounts_excel)
+show_button("🛯 Risky Customers (High Loan + Inactive)", "transformed_risky_customers", risky_customers,loans, logins, accounts, loans_excel, logins_excel, accounts_excel)
 show_button("📈 Branch Profitability Summary", "transformed_branch_profitability", branch_profitability,accounts, loans, customerservices, branches,accounts_excel, loans_excel, customerservices_excel, branches_excel)
