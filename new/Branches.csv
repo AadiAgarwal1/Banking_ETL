@@ -1,0 +1,12 @@
+column_name,metric_type,value
+branch_id,count,109
+branch_id,sum,5995
+branch_id,avg,55.0000
+branch_id,min,1
+branch_id,max,109
+branch_name,count,109
+branch_name,distinct_count,83
+branch_name,group_concat,"Central Branch,North Branch,South Branch,West Branch,East Branch,Downtown Branch,Uptown Branch,Midtown Branch,Financial District Branch,Riverside Branch,Hillside Branch,Parkview Branch,Lakeside Branch,Oceanview Branch,Valley Branch,Metro Branch,Capital Branch,Sunset Branch,Sunrise Branch,Main Street Branch,First Avenue Branch,Second Street Branch,Third Avenue Branch,Fourth Street Branch,Fifth Avenue Branch,Sixth Street Branch,Seventh Avenue Branch,Eighth Street Branch,Ninth Avenue Branch,Tenth Street Branch,Commerce Branch,Business District Branch,Trade Center Branch,Market Street Branch,Wall Street Branch,Broadway Branch,Center City Branch,City Center Branch,Town Center Branch,Village Branch,Suburban Branch,Urban Branch,Countryside Branch,Harbor Branch,Bayview Branch,Marina Branch,Portside Branch,Airport Branch,Transit Branch,Gateway Branch,Crossroads Branch,Junction Branch,Plaza Branch,Square Branch,Circle Branch,Oval Branch,Triangle Branch,Diamond Branch,Emerald Branch,Ruby Branch,Sapphire Branch,Gold Bran"
+location,count,109
+location,distinct_count,101
+location,group_concat,"New York,Chicago,Houston,Los Angeles,Boston,San Francisco,Seattle,Atlanta,Dallas,Miami,Denver,Phoenix,Minneapolis,San Diego,Las Vegas,Philadelphia,Washington DC,Portland,Orlando,Austin,Nashville,Detroit,Baltimore,Salt Lake City,Charlotte,Memphis,Louisville,Milwaukee,Albuquerque,Tucson,Fresno,Sacramento,Kansas City,Mesa,Omaha,Colorado Springs,Raleigh,Virginia Beach,Oakland,Tulsa,Arlington,New Orleans,Wichita,Cleveland,Tampa,Bakersfield,Aurora,Anaheim,Honolulu,Santa Ana,Riverside,Corpus Christi,Lexington,Stockton,Henderson,St. Paul,Cincinnati,St. Louis,Pittsburgh,Greensboro,Lincoln,Anchorage,Plano,Orlando,Irvine,Newark,Durham,Chula Vista,Fort Wayne,Jersey City,St. Petersburg,Laredo,Madison,Chandler,Buffalo,Lubbock,Scottsdale,Reno,Glendale,Norfolk,Winston-Salem,North Las Vegas,Irving,Fremont,Chesapeake,Baton Rouge,Richmond,Boise,San Bernardino,Spokane,Birmingham,Modesto,Rochester,Tacoma,Fontana,Columbus,San Jose,Jacksonville,Indianapolis,San Antonio,Fort Worth,Charlotte,El Paso,Seattle,Denver,Washington DC,Bosto"

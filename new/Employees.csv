@@ -1,0 +1,20 @@
+column_name,metric_type,value
+employee_id,count,100
+employee_id,sum,5050
+employee_id,avg,50.5000
+employee_id,min,1
+employee_id,max,100
+name,count,100
+name,distinct_count,100
+name,group_concat,"Alice Johnson,Bob Smith,Carol Williams,David Brown,Eve Davis,Frank Miller,Grace Wilson,Henry Moore,Ivy Taylor,Jack Anderson,Karen Thomas,Leo Jackson,Mia White,Noah Harris,Olivia Martin,Paul Garcia,Quinn Martinez,Rachel Robinson,Sam Clark,Tina Rodriguez,Ulysses Lewis,Vera Lee,Walter Walker,Xena Hall,Yosef Allen,Zoe Young,Adam Hernandez,Bella King,Caleb Wright,Daisy Lopez,Ethan Hill,Fiona Scott,George Green,Hannah Adams,Ian Baker,Julia Gonzalez,Kevin Nelson,Lily Carter,Mason Mitchell,Nora Perez,Owen Roberts,Penny Turner,Quentin Phillips,Rose Campbell,Simon Parker,Tara Evans,Uriah Edwards,Violet Collins,Wade Stewart,Xander Sanchez,Yara Morris,Zane Rogers,Abby Reed,Ben Cook,Cora Morgan,Dexter Bell,Ella Murphy,Felix Bailey,Gina Rivera,Hank Cooper,Isla Richardson,Jude Cox,Kira Howard,Liam Ward,Maya Torres,Nolan Peterson,Opal Gray,Pete Ramirez,Quincy James,Ruth Watson,Seth Brooks,Tess Kelly,Ugo Sanders,Vera Price,Wes Bennett,Xenia Wood,Yves Barnes,Zara Ross,Aaron Henderson,Brianna Coleman,Curtis Jenkins,Dana Perry,E"
+designation,count,100
+designation,distinct_count,5
+designation,group_concat,"Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer Service,Financial Advisor,Branch Manager,Loan Officer,Teller,Customer "
+branch_id,count,100
+branch_id,sum,1050
+branch_id,avg,10.5000
+branch_id,min,1
+branch_id,max,20
+email,count,100
+email,distinct_count,100
+email,group_concat,"alice.johnson@bank.com,bob.smith@bank.com,carol.williams@bank.com,david.brown@bank.com,eve.davis@bank.com,frank.miller@bank.com,grace.wilson@bank.com,henry.moore@bank.com,ivy.taylor@bank.com,jack.anderson@bank.com,karen.thomas@bank.com,leo.jackson@bank.com,mia.white@bank.com,noah.harris@bank.com,olivia.martin@bank.com,paul.garcia@bank.com,quinn.martinez@bank.com,rachel.robinson@bank.com,sam.clark@bank.com,tina.rodriguez@bank.com,ulysses.lewis@bank.com,vera.lee@bank.com,walter.walker@bank.com,xena.hall@bank.com,yosef.allen@bank.com,zoe.young@bank.com,adam.hernandez@bank.com,bella.king@bank.com,caleb.wright@bank.com,daisy.lopez@bank.com,ethan.hill@bank.com,fiona.scott@bank.com,george.green@bank.com,hannah.adams@bank.com,ian.baker@bank.com,julia.gonzalez@bank.com,kevin.nelson@bank.com,lily.carter@bank.com,mason.mitchell@bank.com,nora.perez@bank.com,owen.roberts@bank.com,penny.turner@bank.com,quentin.phillips@bank.com,rose.campbell@bank.com,simon.parker@bank.com,tara.evans@bank.com,uriah.edwards@bank.com,violet.c"

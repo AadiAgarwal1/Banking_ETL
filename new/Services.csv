@@ -1,0 +1,12 @@
+column_name,metric_type,value
+service_id,count,108
+service_id,sum,5886
+service_id,avg,54.5000
+service_id,min,1
+service_id,max,108
+service_name,count,108
+service_name,distinct_count,108
+service_name,group_concat,"Online Banking,Mobile Banking,Bill Pay,Wire Transfers,Check Deposits,ATM Services,Debit Card,Credit Card,Savings Account,Checking Account,Money Market Account,Certificate of Deposit,IRA Accounts,Mortgage Loans,Auto Loans,Personal Loans,Home Equity Loans,Student Loans,Business Loans,Investment Services,Retirement Planning,Wealth Management,Insurance Products,Credit Monitoring,Identity Theft Protection,Financial Planning,Tax Preparation,Estate Planning,Trust Services,Foreign Currency Exchange,Safe Deposit Boxes,Notary Services,Cashier's Checks,Money Orders,Traveler's Checks,Overdraft Protection,Direct Deposit,Account Alerts,Zelle Payments,Apple Pay,Google Pay,Samsung Pay,Contactless Cards,Rewards Program,Cash Back,Travel Rewards,Balance Transfers,Low Interest Rate,No Annual Fee,Secured Credit Cards,Prepaid Cards,Gift Cards,Business Credit Cards,Corporate Accounts,Merchant Services,Payroll Services,Cash Management,Commercial Loans,Equipment Financing,Lines of Credit,Trade Finance,Letters of Credit,Treasury Servi"
+description,count,108
+description,distinct_count,108
+description,group_concat,"Access your accounts and perform transactions online,Banking services through our mobile app,Pay your bills electronically,Send money domestically and internationally,Deposit checks using your mobile device,Access cash and other services at ATMs,Make purchases and withdraw cash with your debit card,Access credit for purchases with our credit card,Earn interest on your savings,Everyday transactional account,Higher interest savings with check writing,Fixed-term savings with higher interest rates,Save for retirement with tax advantages,Finance your home purchase,Finance your vehicle purchase,Borrow for personal expenses,Borrow against your home equity,Finance your education,Funding for your business,Professional investment management,Plan for your financial future,Comprehensive financial services,Protect your assets and family,Monitor your credit score and report,Protect against identity fraud,Create a roadmap for your finances,Professional tax preparation services,Plan for the distribution of your assets,Profes"

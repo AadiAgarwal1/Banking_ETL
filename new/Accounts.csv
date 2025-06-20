@@ -1,0 +1,20 @@
+column_name,metric_type,value
+account_id,count,100
+account_id,sum,5050
+account_id,avg,50.5000
+account_id,min,1
+account_id,max,100
+customer_id,count,100
+customer_id,sum,5050
+customer_id,avg,50.5000
+customer_id,min,1
+customer_id,max,100
+account_type,count,100
+account_type,distinct_count,3
+account_type,group_concat,"Savings,Current,Fixed Deposit,Savings,Current,Savings,Fixed Deposit,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Fixed Deposit,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Fixed Deposit,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Fixed Deposit,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Fixed Deposit,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Fixed Deposit,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Current,Fixed Deposit,Savings,Current,Savings,Current"
+balance,count,100
+balance,distinct_count,88
+balance,group_concat,"15000.50,250000.00,50000.00,3200.75,187000.25,8900.00,75000.00,42000.50,15600.75,325000.00,100000.00,5400.25,98000.75,12300.50,60000.00,210000.25,7600.00,38000.75,85000.00,9200.50,275000.00,14300.75,45000.00,115000.25,6800.50,29000.75,95000.00,10700.00,198000.25,8200.50,55000.00,125000.75,11900.25,42000.50,70000.00,9500.75,230000.00,13400.50,80000.00,175000.25,7800.75,31000.50,65000.00,10200.25,205000.75,8700.50,35000.25,90000.00,11100.75,185000.50,12500.25,40000.00,95000.75,6900.50,27000.25,85000.00,14300.75,215000.50,9800.25,38000.75,75000.00,11600.50,195000.25,8200.75,29000.50,60000.00,10500.25,225000.75,9100.50,33000.25,95000.00,12700.75,175000.50,7400.25,26000.75,50000.00,13800.50,245000.25,8500.75,37000.50,80000.00,10900.25,185000.75,6700.50,28000.25,65000.00,14200.75,235000.50,9600.25,32000.75,90000.00,11800.50,165000.25,7900.75,24000.50,55000.00,13100.25,255000.75,8800.50,34000.25"
+opened_on,count,100
+opened_on,distinct_count,48
+opened_on,group_concat,"2023-01-10,2022-11-05,2023-02-15,2023-03-20,2022-10-01,2023-04-05,2023-01-25,2022-12-12,2023-02-28,2022-09-15,2023-03-01,2023-04-10,2022-11-20,2023-01-05,2023-02-10,2022-10-15,2023-03-25,2022-12-05,2023-01-30,2023-04-15,2022-09-20,2023-02-05,2023-03-10,2022-11-25,2023-01-15,2022-12-20,2023-02-28,2023-04-20,2022-10-25,2023-03-05,2023-01-20,2022-11-10,2023-02-15,2022-12-25,2023-03-30,2023-04-25,2022-09-30,2023-01-25,2023-02-20,2022-11-15,2023-03-10,2022-12-10,2023-01-05,2023-04-30,2022-10-10,2023-02-25,2022-11-30,2023-03-15,2023-01-10,2022-12-15,2023-04-05,2023-02-05,2022-11-05,2023-03-20,2022-12-30,2023-01-15,2023-04-10,2022-10-20,2023-02-10,2022-11-25,2023-03-05,2023-01-30,2022-12-05,2023-04-15,2022-11-10,2023-02-20,2023-03-25,2022-10-15,2023-01-20,2022-12-20,2023-04-01,2023-02-15,2022-11-20,2023-03-10,2022-12-25,2023-01-25,2023-04-20,2022-10-30,2023-02-28,2022-11-15,2023-03-15,2023-01-10,2022-12-10,2023-04-05,2022-11-30,2023-02-10,2023-03-20,2022-10-25,2023-01-15,2022-12-30,2023-04-10,2023-02-05,2022-11-20,2"

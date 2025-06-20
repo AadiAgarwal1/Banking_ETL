@@ -1,0 +1,20 @@
+column_name,metric_type,value
+transaction_id,count,103
+transaction_id,sum,5356
+transaction_id,avg,52.0000
+transaction_id,min,1
+transaction_id,max,103
+account_id,count,103
+account_id,sum,5058
+account_id,avg,49.1068
+account_id,min,1
+account_id,max,100
+transaction_type,count,103
+transaction_type,distinct_count,2
+transaction_type,group_concat,"Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit,Debit,Credit"
+amount,count,103
+amount,distinct_count,19
+amount,group_concat,"1000.00,500.00,2000.00,1000.00,5000.00,200.00,3000.00,1500.00,1000.00,2500.00,1200.00,800.00,5000.00,3000.00,600.00,400.00,1500.00,1000.00,2500.00,300.00,800.00,2000.00,700.00,1500.00,900.00,1200.00,1800.00,250.00,600.00,3500.00,1200.00,800.00,500.00,1500.00,2200.00,300.00,800.00,2000.00,700.00,1500.00,900.00,1200.00,1800.00,250.00,600.00,3500.00,1200.00,800.00,500.00,1500.00,2200.00,300.00,800.00,2000.00,700.00,1500.00,900.00,1200.00,1800.00,250.00,600.00,3500.00,1200.00,800.00,500.00,1500.00,2200.00,300.00,800.00,2000.00,700.00,1500.00,900.00,1200.00,1800.00,250.00,600.00,3500.00,1200.00,800.00,500.00,1500.00,2200.00,300.00,800.00,2000.00,700.00,1500.00,900.00,1200.00,1800.00,250.00,600.00,3500.00,1200.00,800.00,500.00,1500.00,2200.00,300.00,800.00,2000.00,700.00"
+transaction_date,count,103
+transaction_date,min,2022-09-20 09:00:00
+transaction_date,max,2023-05-05 10:15:00
