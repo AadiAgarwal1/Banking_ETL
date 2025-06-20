@@ -3,8 +3,8 @@ import pandas as pd
 import mysql.connector
 import os
 
-st.set_page_config(page_title="Extract", layout="wide")
-st.title("📤 Extract Data from Database and Local Files")
+st.set_page_config(page_title="Extract/Load", layout="wide")
+st.title("📤 Extract/Load Data from Database and Local Files")
 
 # ✅ Step 1: Reconnect using stored credentials
 conn = None
