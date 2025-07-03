@@ -28,10 +28,17 @@ def apply_scd_type_2(history_df, incoming_df):
 
                 new_entry = new_row.to_dict()
                 new_entry.update({'start_date': today, 'end_date': None, 'is_current': True})
-                updated_rows.append(new_entry)
+
+                duplicate = history_df[
+                    (history_df['employee_id'] == new_entry['employee_id']) &
+                    (history_df['designation'] == new_entry['designation']) &
+                    (history_df['branch_id'] == new_entry['branch_id']) &
+                    (history_df['start_date'] == today)
+                ]
+                if duplicate.empty:
+                    updated_rows.append(new_entry)
 
         elif emp_id not in history_df['employee_id'].values:
-            # New employee, insert fresh
             new_entry = new_row.to_dict()
             new_entry.update({'start_date': today, 'end_date': None, 'is_current': True})
             updated_rows.append(new_entry)
@@ -58,13 +65,52 @@ def apply_scd_type_3(current_df, incoming_df):
     return current_df
 
 def transform_employees(current_df, incoming_df, history_df):
-    # Apply Type 1
-    current_df = apply_scd_type_1(current_df, incoming_df, ['email'])
+    import datetime as dt
 
-    # Apply Type 2
-    history_df = apply_scd_type_2(history_df, incoming_df)
+    incoming_df['branch_id'] = pd.to_numeric(incoming_df['branch_id'], errors='coerce')
+    incoming_df = incoming_df.dropna(subset=['branch_id'])
+    incoming_df['branch_id'] = incoming_df['branch_id'].astype(int)
 
-    # Apply Type 3
-    current_df = apply_scd_type_3(current_df, incoming_df)
+    today = pd.to_datetime(dt.date.today())
+
+    current_df = current_df.copy()
+    history_df = history_df.copy()
+
+    for _, row in incoming_df.iterrows():
+        emp_id = row['employee_id']
+        match = current_df[current_df['employee_id'] == emp_id]
+
+        if match.empty:
+            new_record = row.copy()
+            new_record['start_date'] = today
+            new_record['end_date'] = pd.NaT
+            new_record['is_current'] = True
+            current_df = pd.concat([current_df, pd.DataFrame([new_record])], ignore_index=True)
+            history_df = pd.concat([history_df, pd.DataFrame([new_record])], ignore_index=True)
+
+        else:
+            current_row = match.iloc[0]
+
+            if row['designation'] != current_row['designation'] or row['branch_id'] != current_row['branch_id']:
+                current_df.loc[current_df['employee_id'] == emp_id, 'is_current'] = False
+                current_df.loc[current_df['employee_id'] == emp_id, 'end_date'] = today
+
+                new_row = row.copy()
+                new_row['start_date'] = today
+                new_row['end_date'] = pd.NaT
+                new_row['is_current'] = True
+
+                duplicate = history_df[
+                    (history_df['employee_id'] == new_row['employee_id']) &
+                    (history_df['designation'] == new_row['designation']) &
+                    (history_df['branch_id'] == new_row['branch_id']) &
+                    (history_df['start_date'] == today)
+                ]
+                if duplicate.empty:
+                    current_df = pd.concat([current_df, pd.DataFrame([new_row])], ignore_index=True)
+                    history_df = pd.concat([history_df, pd.DataFrame([new_row])], ignore_index=True)
+
+            elif row['email'] != current_row['email']:
+                current_df.loc[current_df['employee_id'] == emp_id, 'email'] = row['email']
 
     return current_df, history_df

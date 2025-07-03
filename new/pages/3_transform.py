@@ -106,29 +106,44 @@ show_button("🏦 Customers Per Branch", "transformed_customers_per_branch", cus
 show_button("👨‍💼 Employees Per Branch", "transformed_employees_per_branch", employees_per_branch,employees, branches, employees_excel, branches_excel)
 
 # SCD Integration Section
-with st.expander("🔁 Apply SCD to Employees Table"):
-    if st.button("Run Employee SCD Transformation"):
+st.subheader("🔁 Employee SCD Management")
+with st.expander("Apply SCD to Employees Table"):
+    # Store state across re-runs to avoid Run button resetting Save
+    if st.button("▶️ Run Employee SCD Transformation"):
         try:
-            current_df = employees
-            incoming_df = employees_excel  # From Excel
+            current_df = employees.copy()
+            incoming_df = employees_excel.copy()
             history_df = load_table_as_df('employees_history')
 
             current_df_updated, history_df_updated = transform_employees(current_df, incoming_df, history_df)
 
-            st.success("SCD Applied Successfully!")
-            st.subheader("✅ Updated Current Employees")
-            st.dataframe(current_df_updated)
+            st.session_state["current_scd_df"] = current_df_updated
+            st.session_state["history_scd_df"] = history_df_updated
 
-            st.subheader("📜 Employees History Table (SCD Type 2)")
-            st.dataframe(history_df_updated)
-
-            if st.button("💾 Save SCD Output to Database"):
-                write_to_sql(current_df_updated, 'Employees', mode='replace')
-                write_to_sql(history_df_updated, 'employees_history', mode='replace')
-                st.success("SCD changes saved to database.")
-
+            st.success("✅ SCD Applied Successfully!")
         except Exception as e:
-            st.error(f"An error occurred: {e}")
+            st.error(f"❌ Error during SCD Transformation: {e}")
+
+    # Display after transformation
+    if "current_scd_df" in st.session_state and "history_scd_df" in st.session_state:
+        st.subheader("✅ Updated Current Employees")
+        st.dataframe(st.session_state["current_scd_df"], use_container_width=True)
+
+        st.subheader("📜 Employees History Table (SCD Type 2)")
+        st.dataframe(st.session_state["history_scd_df"], use_container_width=True)
+
+        if st.button("💾 Save SCD Output to Database"):
+            try:
+                current_clean = st.session_state["current_scd_df"].drop_duplicates(subset=['employee_id', 'email'])
+                history_clean = st.session_state["history_scd_df"].drop_duplicates(subset=['employee_id', 'email', 'start_date'])
+
+                write_to_sql(current_clean, 'employees', mode='replace')
+                write_to_sql(history_clean, 'employees_history', mode='replace')
+
+                st.success("✅ SCD changes saved successfully to the database.")
+            except Exception as e:
+                st.error(f"❌ Failed to save to DB: {e}")
+
 
 # -----------------------------------------
 st.subheader("⚠️ Risk & Profitability")
